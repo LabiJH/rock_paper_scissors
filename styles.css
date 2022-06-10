@@ -28,3 +28,7 @@ body{
     border-radius: 5px;
     background-color: aquamarine;
 }
+
+#playPick{
+    margin:15px;
+}

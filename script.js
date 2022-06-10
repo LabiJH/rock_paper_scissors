@@ -6,27 +6,32 @@ let btnRock = document.getElementById("btnRock");
 let btnPaper = document.getElementById("btnPaper");
 let btnScissor = document.getElementById("btnScissor");
 let counter = 0;
-let gameCounter = document.getElementById("counter");
+let botCounter = document.getElementById("botCounter");
 let botWins = 0;
 let userWins = 0;
+let result = document.getElementById("playPick")
+
+botCounter.innerHTML = " " + 0;
+userCounter.innerHTML = " " + 0;
 
 btnRock.addEventListener("click", () => {
     if (botMove == "Rock"){
         document.getElementById("text").innerHTML ="Draw";
         counter++;
-        gameCounter.innerHTML = " " + counter;
     } else if (botMove == "Paper")
     {
         document.getElementById("text").innerHTML ="You Lose";
         counter++;
         botWins++;
-        gameCounter.innerHTML = " " + counter;
+        botCounter.innerHTML = " " + botWins;
     } else {
         document.getElementById("text").innerHTML ="You Win!";
         counter++;
         userWins++;
-        gameCounter.innerHTML = " " + counter;
+        userCounter.innerHTML = " " + userWins;
     }
+    result.innerHTML = "you picked Rock, the Bot picked " + botMove;
+
     botMove = movePossibilities[Math.floor(Math.random() * movePossibilities.length)];      // Picking the move for the Bot from the Array
 
     if(counter == 5 && botWins > userWins){
@@ -52,19 +57,19 @@ btnPaper.addEventListener("click", () => {
         document.getElementById("text").innerHTML ="Draw";
         counter++;
         
-        gameCounter.innerHTML = " " + counter;
-    } else if (botMove == "Scissor")
+    } else if (botMove == "Scissors")
     {
         document.getElementById("text").innerHTML ="You Lose";
         counter++;
         botWins++;
-        gameCounter.innerHTML = " " + counter;
+        botCounter.innerHTML = " " + botWins;
     } else {
         document.getElementById("text").innerHTML ="You Win!";
         counter++;
         userWins++;
-        gameCounter.innerHTML = " " + counter;
+        userCounter.innerHTML = " " + userWins;
     }
+    result.innerHTML = "you picked Paper, the Bot picked " + botMove;
     botMove = movePossibilities[Math.floor(Math.random() * movePossibilities.length)];      // Picking the move for the Bot from the Array
 
     if(counter == 5 && botWins > userWins){
@@ -86,22 +91,22 @@ btnPaper.addEventListener("click", () => {
 })
 
 btnScissor.addEventListener("click", () => {
-    if (botMove == "Scissor"){
+    if (botMove == "Scissors"){
         document.getElementById("text").innerHTML ="Draw";
         counter++;
-        gameCounter.innerHTML = " " + counter;
     } else if (botMove == "Rock")
     {
         document.getElementById("text").innerHTML ="You Lose";
         counter++;
         botWins++;
-        gameCounter.innerHTML = " " + counter;
+        botCounter.innerHTML = " " + botWins;
     } else {
         document.getElementById("text").innerHTML ="You Win!";
         counter++;
         userWins++;
-        gameCounter.innerHTML = " " + counter;
+        userCounter.innerHTML = " " + userWins;
     }
+    result.innerHTML = "you picked Scissors, the Bot picked " + botMove;
     botMove = movePossibilities[Math.floor(Math.random() * movePossibilities.length)];      // Picking the move for the Bot from the Array
     if(counter == 5 && botWins > userWins){
         alert("You lose! The bot won" + botWins + " times out of 5.")
